@@ -1,7 +1,7 @@
 import React from 'react';
-import { Hello } from './Hello.jsx';
-import { Info } from './Info.jsx';
 import { Task } from  './Task.jsx'
+import { useTracker } from 'meteor/react-meteor-data';
+import { TasksCollection } from '/imports/api/TasksCollection';
 
 const tasks = [
   {_id: 1, text: 'First Task'},
@@ -9,17 +9,20 @@ const tasks = [
   {_id: 3, text: 'Third Task'},
 ];
 
-export const App = () => (
-  <div>
-    <h1>Welcome to Meteor!</h1>
-    <Hello/>
+export const App = () => {
+
+  const tasks = useTracker(() => TasksCollection.find({}).fetch());
+  return(
     <div>
-      <h1>Welcome to Meteor!</h1>
+      <div>
+       <h1>Welcome to Meteor!</h1>
   
-      <ul>
-        { tasks.map(task => <Task key={ task._id } task={ task }/>) }
-      </ul>
-  </div>
-    <Info/>
-  </div>
-);
+        <ul>
+         { tasks.map(task => <Task key={ task._id } task={ task }/>) }
+         </ul>
+      </div>
+    
+    </div>
+  )
+ 
+};
