@@ -16,6 +16,16 @@ body {
   font-size: 14px;
 }
 
+.filter{
+
+  display: flex;
+  justify-content: center;
+}
+
+.filter > button {
+  background-color: #62807e;
+}
+
 button {
   font-weight: bold;
   font-size: 1em;
