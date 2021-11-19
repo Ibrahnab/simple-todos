@@ -4,6 +4,7 @@ import { TasksCollection } from "/imports/api/TasksCollection"
 import { useTracker } from 'meteor/react-meteor-data';
 import { Accounts} from 'meteor/accounts-base';
 import '/imports/api/tasksMethods';
+import '/imports/api/tasksPublications';
 
 const SEED_USERNAME = 'meteorite';
 const SEED_PASSWORD = 'password';
